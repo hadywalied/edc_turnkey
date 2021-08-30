@@ -116,7 +116,7 @@ class SmokeTestAnalyzer:
             sys.exit()
 
     def start(self):
-        pdb.set_trace()
+        # pdb.set_trace()
         if self.mode_of_operation is MODES_OF_OPERATION.all.value:
             commands = [self.write_command_edc(), self.write_command_turnkey()]
         elif self.mode_of_operation is MODES_OF_OPERATION.run.value:
