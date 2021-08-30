@@ -10,21 +10,21 @@ class Subject(ABC):
     """
 
     @abstractmethod
-    def attach(self, observer) -> None:
+    def attach(self, observer) :
         """
         Attach an observer to the subject.
         """
         pass
 
     @abstractmethod
-    def detach(self, observer) -> None:
+    def detach(self, observer) :
         """
         Detach an observer from the subject.
         """
         pass
 
     @abstractmethod
-    def notify(self) -> None:
+    def notify(self) :
         """
         Notify all observers about an event.
         """
@@ -49,18 +49,18 @@ class ConcreteSubject(Subject):
     more comprehensively (categorized by event type, etc.).
     """
 
-    def attach(self, observer) -> None:
+    def attach(self, observer) :
         # print("Subject: Attached an observer.")
         self._observers.append(observer)
 
-    def detach(self, observer) -> None:
+    def detach(self, observer) :
         self._observers.remove(observer)
 
     """
     The subscription management methods.
     """
 
-    def notify(self) -> None:
+    def notify(self) :
         """
         Trigger an update in each subscriber.
         """
@@ -69,7 +69,7 @@ class ConcreteSubject(Subject):
         for observer in self._observers:
             observer.update(self)
 
-    def start_process(self, commands) -> None:
+    def start_process(self, commands) :
         """
         Usually, the subscription logic is only a fraction of what a Subject can
         really do. Subjects commonly hold some important business logic, that
