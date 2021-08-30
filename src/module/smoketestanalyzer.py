@@ -71,7 +71,7 @@ class SmokeTestAnalyzer:
         self.validate_inputs()
 
         self.edc_path = os.environ.get("STAMP_REG_PATH") + "/Utilities/ethernet-desgins-compiler/bin/edc"
-        self.turnkey_path = os.environ.get("STAMP_REG_PATH") + "/turnkey/main_arguments.py"
+        self.turnkey_path = os.environ.get("STAMP_REG_PATH") + "/turnKey/main_arguments.py"
 
         self.initialize_observers()
 
