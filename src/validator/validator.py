@@ -14,7 +14,7 @@ class Monitoring:
 
     def validate(self):
         ex = self.state.split(" ")
-        if len(ex) !=0:
+        if len(ex) > 3:
             if ex[0] == "<<" and ex[-1] == "Successful":
                 self.examples[ex[1]] = ex[-3]
 
