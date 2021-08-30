@@ -27,7 +27,7 @@ attached to.
 class ConcreteObserver(Observer):
     def __init__(self, logger, monitor):
         self.logger = logger
-        self.moitor = monitor
+        self.monitor = monitor
 
     def update(self, subject):
         self.subject = subject
