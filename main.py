@@ -5,7 +5,6 @@
 
 from src.module.smoketestanalyzer import SmokeTestAnalyzer
 
-
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     module = SmokeTestAnalyzer(solution='vved',
@@ -14,7 +13,7 @@ if __name__ == '__main__':
                                logging_dir='/home/hwalied/Project/tmp-logs',
                                output_dir='/home/hwalied/Project/tmp-logs',
                                hosts_file='/home/hwalied/tk/stamp_master/Utilities/ethernet-desgins-compiler/hosts',
-                               distribute=true,
+                               distribute=True,
                                avb_list=[1], mode_of_operation="compile", compiled_path="",
                                check_method_name="run_validation")
     module.start()
