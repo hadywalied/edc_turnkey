@@ -1,7 +1,7 @@
 import subprocess
 import threading
 from abc import ABCMeta, abstractmethod
-from shlex import shlex
+import shlex
 
 
 class Subject:
