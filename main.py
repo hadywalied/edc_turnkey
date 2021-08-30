@@ -14,7 +14,7 @@ if __name__ == '__main__':
                                output_dir='/home/oalaa/maadi/hwalied/tmp_logs',
                                hosts_file='/home/hwalied/tk/stamp_master/Utilities/ethernet-desgins-compiler/hosts',
                                distribute=True,
-                               avb_list=[1], mode_of_operation="compile", compiled_path="",
+                               avb_list=[1], mode_of_operation="run", compiled_path="/home/oalaa/maadi/hwalied/tmp_logs",
                                check_method_name="run_validation")
     module.start()
 
