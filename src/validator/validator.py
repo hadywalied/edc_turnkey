@@ -5,7 +5,7 @@ import sys
 class Monitoring:
     def __init__(self, module):
         self.state = ""
-        self.examples = {}
+        self.examples = {"test":"created"}
         self.module = module
 
     def sendState(self, state):
@@ -17,8 +17,11 @@ class Monitoring:
         if len(ex) > 3:
             if ex[0] == "<<" and ex[-1] == "Successful":
                 self.examples[ex[1]] = ex[-3]
+                self.examples["test"] = "successful"
 
             if ex[1] == "Failed":
                 print("edc finished")
+                if self.examples["test"] == "created":
+                    self.examples["test"] = "failed"
                 self.module.examples_dict = self.examples
                 # TODO: send the examples to the main module
