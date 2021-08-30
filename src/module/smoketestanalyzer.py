@@ -185,3 +185,6 @@ class SmokeTestAnalyzer:
             fun=self.check_method_name
         )
         return command
+
+    def __del__(self):
+        del (self.subject)

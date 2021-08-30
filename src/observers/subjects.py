@@ -9,22 +9,23 @@ class Subject:
     The Subject interface declares a set of methods for managing subscribers.
     """
     __metaclass__ = ABCMeta
+
     @abstractmethod
-    def attach(self, observer) :
+    def attach(self, observer):
         """
         Attach an observer to the subject.
         """
         pass
 
     @abstractmethod
-    def detach(self, observer) :
+    def detach(self, observer):
         """
         Detach an observer from the subject.
         """
         pass
 
     @abstractmethod
-    def notify(self) :
+    def notify(self):
         """
         Notify all observers about an event.
         """
@@ -49,18 +50,18 @@ class ConcreteSubject(Subject):
     more comprehensively (categorized by event type, etc.).
     """
 
-    def attach(self, observer) :
+    def attach(self, observer):
         # print("Subject: Attached an observer.")
         self._observers.append(observer)
 
-    def detach(self, observer) :
+    def detach(self, observer):
         self._observers.remove(observer)
 
     """
     The subscription management methods.
     """
 
-    def notify(self) :
+    def notify(self):
         """
         Trigger an update in each subscriber.
         """
@@ -69,7 +70,7 @@ class ConcreteSubject(Subject):
         for observer in self._observers:
             observer.update(self)
 
-    def start_process(self, commands) :
+    def start_process(self, commands):
         """
         Usually, the subscription logic is only a fraction of what a Subject can
         really do. Subjects commonly hold some important business logic, that
@@ -91,6 +92,10 @@ class ConcreteSubject(Subject):
                         self.process_output = output
                         self.notify()
 
-        self.thread = threading.Thread(target=target)
+        self.thread = threading.Thread(target=target, name="myThread")
         # self.thread.setDaemon(True)
         self.thread.start()
+
+    def __del__(self):
+        if self.thread.is_alive():
+            self.thread.join()
