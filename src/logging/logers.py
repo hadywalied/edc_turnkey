@@ -27,7 +27,7 @@ class Loggers:
         self.fatalLogger.addHandler(consoleHandler)
         self.fatalLogger.setLevel(logging.DEBUG)
 
-    def sendState(self, state: str):
+    def sendState(self, state):
         self.state = state
         if state.__contains__('error'):
             self.log_error()

@@ -10,7 +10,7 @@ class Observer(ABC):
     """
 
     @abstractmethod
-    def update(self, subject: Subject) -> None:
+    def update(self, subject) -> None:
         """
         Receive update from subject.
         """
@@ -28,7 +28,7 @@ class ConcreteObserver(Observer):
         self.logger = logger
         self.moitor = monitor
 
-    def update(self, subject: Subject) -> None:
+    def update(self, subject) -> None:
         self.subject = subject
         # if subject.state.__contains__('error') or subject.state.__contains__('not found') \
         #         or subject.state.__contains__("down"):
