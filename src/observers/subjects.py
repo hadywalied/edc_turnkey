@@ -92,7 +92,7 @@ class ConcreteSubject(Subject):
                         self.process_output = output
                         self.notify()
 
-        self.thread = threading.Thread(target=target, name="myThread")
+        self.thread = threading.Thread(target=target)
         # self.thread.setDaemon(True)
         self.thread.start()
 

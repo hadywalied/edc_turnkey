@@ -3,10 +3,10 @@ import sys
 
 
 class Monitoring:
-    def __init__(self, module):
+    def __init__(self, smoke_module):
         self.state = ""
         self.examples = {"test":"created"}
-        self.module = module
+        self.smoke = smoke_module
 
     def sendState(self, state):
         self.state = state
@@ -19,9 +19,9 @@ class Monitoring:
                 self.examples[ex[1]] = ex[-3]
                 self.examples["test"] = "successful"
 
-            if ex[1] == "Failed":
+            if ex[1] == "Failed": # Failed : 0
                 print("edc finished")
                 if self.examples["test"] == "created":
                     self.examples["test"] = "failed"
-                self.module.examples_dict = self.examples
+                self.smoke.examples_dict = self.examples
                 # TODO: send the examples to the main module

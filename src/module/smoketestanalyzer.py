@@ -126,6 +126,8 @@ class SmokeTestAnalyzer:
         else:
             print("wrong mode")
             sys.exit()
+
+        print(commands)
         self.subject.start_process(commands=commands)
 
     def write_command_edc(self):
