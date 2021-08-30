@@ -85,7 +85,7 @@ class ConcreteSubject(Subject):
                 while True:
                     output = self.process.stdout.readline().decode()
                     if output == '' and self.process.poll() is not None:
-                        self.process_output = 'process finished'
+                        self.process_output = 'hamada'
                         self.notify()
                         break
                     if output:
