@@ -159,7 +159,10 @@ class SmokeTestAnalyzer:
         return command
 
     def write_command_turnkey(self):
-        if self.examples_dict["test"] == "created":
+        if not self.examples_dict:
+            converted_list = [str(element) for element in self.examples_list.keys()]
+            examples = ",".join(converted_list)
+        elif self.examples_dict["test"] == "created":
             converted_list = [str(element) for element in self.examples_list.keys()]
             examples = ",".join(converted_list)
         elif self.examples_dict["test"] == "failed":
