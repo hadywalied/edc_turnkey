@@ -76,7 +76,7 @@ class SmokeTestAnalyzer:
         self.initialize_observers()
 
     def initialize_observers(self):
-        self.logger = Loggers('..', "loggings")
+        self.logger = Loggers(self.logging_dir, "loggings")
         self.monitor = Monitoring(self)
         self.subject = ConcreteSubject()
         self.observer = ConcreteObserver(logger=self.logger, monitor=self.monitor)
