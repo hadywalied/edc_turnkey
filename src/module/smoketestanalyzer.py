@@ -35,17 +35,17 @@ class SmokeTestAnalyzer:
 
     """
 
-    def __init__(self, solution=SUPPORTED_SOLUTIONS.vved,
+    def __init__(self, solution=SUPPORTED_SOLUTIONS.vved.value,
                  env_file="",
                  examples_list=None,
                  examples_file="",
-                 compilation_type=COMPILATION_TYPES.Simulation,
+                 compilation_type=COMPILATION_TYPES.Simulation.value,
                  logging_dir="",
                  output_dir="",
                  hosts_file="",
                  distribute=False,
                  avb_list=None,
-                 mode_of_operation=MODES_OF_OPERATION.all,
+                 mode_of_operation=MODES_OF_OPERATION.all.value,
                  compiled_path="",
                  check_method_name=""):
         if avb_list is None:
@@ -117,11 +117,11 @@ class SmokeTestAnalyzer:
 
     def start(self):
         pdb.set_trace()
-        if self.mode_of_operation is MODES_OF_OPERATION.all:
+        if self.mode_of_operation is MODES_OF_OPERATION.all.value:
             commands = [self.write_command_edc(), self.write_command_turnkey()]
-        elif self.mode_of_operation is MODES_OF_OPERATION.run:
+        elif self.mode_of_operation is MODES_OF_OPERATION.run.value:
             commands = [self.write_command_turnkey()]
-        elif self.mode_of_operation is MODES_OF_OPERATION.compile:
+        elif self.mode_of_operation is MODES_OF_OPERATION.compile.value:
             commands = [self.write_command_edc()]
         else:
             print("wrong mode")
@@ -166,8 +166,8 @@ class SmokeTestAnalyzer:
             converted_list = [str(element) for element in self.examples_dict.keys()]
             examples = ",".join(converted_list)
 
-        solution = 'eth' if (self.solution is SUPPORTED_SOLUTIONS.vved) else '5g' if (
-                self.solution is SUPPORTED_SOLUTIONS.v5f) else 'eth'
+        solution = 'eth' if (self.solution is SUPPORTED_SOLUTIONS.vved.value) else '5g' if (
+                self.solution is SUPPORTED_SOLUTIONS.v5f.value) else 'eth'
 
         command = "python {turnkey} --examples {ex} --solution {sol} --env {env} --log {log} --test_type {test} " \
                   "--mode_of_operation {op} --avb_list {avb} --compiled_design {comp} " \

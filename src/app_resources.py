@@ -42,5 +42,5 @@ class METHOD_NAMES(Enum):
 
 
 if __name__ == "__main__":
-    st = "v5f"
-    print(st in SUPPORTED_SOLUTIONS._value2member_map_)
+    st = "vved"
+    print(st is SUPPORTED_SOLUTIONS.vved.value)
