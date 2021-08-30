@@ -1,14 +1,14 @@
 import subprocess
 import threading
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 from shlex import shlex
 
 
-class Subject(ABC):
+class Subject:
     """
     The Subject interface declares a set of methods for managing subscribers.
     """
-
+    __metaclass__ = ABCMeta
     @abstractmethod
     def attach(self, observer) :
         """

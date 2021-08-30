@@ -1,13 +1,14 @@
 import sys
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 
 from src.observers.subjects import Subject
 
 
-class Observer(ABC):
+class Observer:
     """
     The Observer interface declares the update method, used by subjects.
     """
+    __metaclass__ = ABCMeta
 
     @abstractmethod
     def update(self, subject):
