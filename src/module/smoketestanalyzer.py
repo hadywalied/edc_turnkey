@@ -177,7 +177,9 @@ class SmokeTestAnalyzer:
 
         solution = 'eth' if (self.solution is SUPPORTED_SOLUTIONS.vved.value) else '5g' if (
                 self.solution is SUPPORTED_SOLUTIONS.v5f.value) else 'eth'
-        avb = ",".join(self.avb_list)
+
+        converted_list = [str(element) for element in self.avb_list]
+        avb = ",".join(converted_list)
         command = "python {turnkey} --examples {ex} --solution {sol} --env {env} --log {log} " \
                   "--mode_of_operation {op} --avb_list {avb} --compiled_design {comp} " \
                   " --function_name {fun}".format(
