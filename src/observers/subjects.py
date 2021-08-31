@@ -78,24 +78,24 @@ class ConcreteSubject(Subject):
         happen (or after it).
         """
 
-        def target():
-            for command in commands:
-                self.process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE,
-                                                stderr=subprocess.PIPE)
-                while True:
-                    output = self.process.stdout.readline().decode('utf-8').strip()
-                    if output == '' and self.process.poll() is not None:
-                        self.process_output = 'hamada'
-                        self.notify()
-                        break
-                    if output:
-                        self.process_output = output
-                        self.notify()
+        # def target():
+        for command in commands:
+            self.process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE,
+                                            stderr=subprocess.PIPE)
+            while True:
+                output = self.process.stdout.readline().decode('utf-8').strip()
+                if output == '' and self.process.poll() is not None:
+                    self.process_output = 'hamada'
+                    self.notify()
+                    break
+                if output:
+                    self.process_output = output
+                    self.notify()
 
-        self.thread = threading.Thread(target=target)
-        # self.thread.setDaemon(True)
-        self.thread.start()
-
-    def __del__(self):
-        if self.thread.is_alive():
-            self.thread.join()
+    # self.thread = threading.Thread(target=target)
+    # self.thread.setDaemon(True)
+    # self.thread.start()
+#
+# def __del__(self):
+#     if self.thread.is_alive():
+#         self.thread.join()
