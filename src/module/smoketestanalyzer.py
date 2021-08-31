@@ -177,20 +177,18 @@ class SmokeTestAnalyzer:
 
         solution = 'eth' if (self.solution is SUPPORTED_SOLUTIONS.vved.value) else '5g' if (
                 self.solution is SUPPORTED_SOLUTIONS.v5f.value) else 'eth'
-
-        command = "python {turnkey} --examples {ex} --solution {sol} --env {env} --log {log} --test_type {test} " \
+        avb = ",".join(self.avb_list)
+        command = "python {turnkey} --examples {ex} --solution {sol} --env {env} --log {log} " \
                   "--mode_of_operation {op} --avb_list {avb} --compiled_design {comp} " \
-                  "--config_data {config} --function_name {fun}".format(
+                  " --function_name {fun}".format(
             turnkey=self.turnkey_path,
             ex=examples,
             sol=solution,
             env=self.env_file,
             log=self.logging_dir,
-            test="",
             op=self.mode_of_operation,
-            avb=self.avb_list,
+            avb=avb,
             comp=self.compiled_path,
-            config="",
             fun=self.check_method_name
         )
         return command
