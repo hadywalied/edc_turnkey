@@ -6,7 +6,8 @@ class Loggers:
     def __init__(self, logPath = ".", info_fileName="info", error_fileName="error"):
         self.state = ""
         self.infoLogger = logging.getLogger("info")
-        logFormatter = logging.Formatter('%(levelname)s - %(asctime)s - %(message)s')
+        # logFormatter = logging.Formatter('%(levelname)s - %(asctime)s - %(message)s')
+        logFormatter = logging.Formatter('%(message)s')
         fileHandler = logging.FileHandler("{0}/{1}.log".format(logPath, info_fileName))
         fileHandler.setFormatter(logFormatter)
         self.infoLogger.addHandler(fileHandler)
@@ -17,7 +18,8 @@ class Loggers:
         self.infoLogger.setLevel(logging.DEBUG)
 
         self.fatalLogger = logging.getLogger("error")
-        logFormatter = logging.Formatter('%(levelname)s - %(asctime)s - %(message)s')
+        # logFormatter = logging.Formatter('%(levelname)s - %(asctime)s - %(message)s')
+        logFormatter = logging.Formatter('%(message)s')
         fileHandler = logging.FileHandler("{0}/{1}.log".format(logPath, error_fileName))
         fileHandler.setFormatter(logFormatter)
         self.fatalLogger.addHandler(fileHandler)
