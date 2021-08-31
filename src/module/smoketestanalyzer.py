@@ -188,7 +188,7 @@ class SmokeTestAnalyzer:
             sol=solution,
             env=self.env_file,
             log=self.logging_dir,
-            op=self.mode_of_operation,
+            op="run",
             avb=avb,
             comp=self.compiled_path,
             fun=self.check_method_name
