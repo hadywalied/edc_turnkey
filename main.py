@@ -9,12 +9,12 @@ from src.module.smoketestanalyzer import SmokeTestAnalyzer
 if __name__ == '__main__':
     smoke = SmokeTestAnalyzer(solution='vved',
                               env_file='/home/oalaa/maadi/VirtualEthernet_v11.4.0/b4233/vved1140.bash',
-                              examples_list=["CGMII"], compilation_type='Simulation',
+                              examples_list=["CGMII"], compilation_type='Emulation',
                               logging_dir='/home/oalaa/maadi/hwalied/tmp_logs',
                               output_dir='/home/oalaa/maadi/hwalied/tmp_logs',
                               hosts_file='/home/hwalied/tk/stamp_master/Utilities/ethernet-desgins-compiler/hosts',
                               distribute=True,
-                              avb_list=[1], mode_of_operation="run", compiled_path="/home/oalaa/maadi/hwalied/tmp_logs/CGMII",
+                              avb_list=[1], mode_of_operation="all", compiled_path="/home/oalaa/maadi/hwalied/tmp_logs/CGMII",
                               check_method_name="run_validation")
     smoke.start()
 
