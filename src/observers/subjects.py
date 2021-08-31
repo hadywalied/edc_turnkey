@@ -93,7 +93,7 @@ class ConcreteSubject(Subject):
                         self.notify()
 
         self.thread = threading.Thread(target=target)
-        # self.thread.setDaemon(True)
+        self.thread.setDaemon(True)
         self.thread.start()
 
     def __del__(self):
