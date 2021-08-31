@@ -83,7 +83,7 @@ class ConcreteSubject(Subject):
                 self.process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE,
                                                 stderr=subprocess.PIPE)
                 while True:
-                    output = self.process.stdout.readline().decode()
+                    output = self.process.stdout.readline().decode('utf-8').strip()
                     if output == '' and self.process.poll() is not None:
                         self.process_output = 'hamada'
                         self.notify()
