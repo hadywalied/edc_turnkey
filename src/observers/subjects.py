@@ -1,3 +1,4 @@
+import pdb
 import subprocess
 import threading
 from abc import ABCMeta, abstractmethod
@@ -80,6 +81,7 @@ class ConcreteSubject(Subject):
 
         # def target():
         for command in commands:
+            pdb.set_trace()
             self.process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE,
                                             stderr=subprocess.PIPE)
             while True:
