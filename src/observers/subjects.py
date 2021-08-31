@@ -89,6 +89,7 @@ class ConcreteSubject(Subject):
                     self.notify()
                     break
                 if output:
+                    print(output)
                     self.process_output = output
                     self.notify()
 
